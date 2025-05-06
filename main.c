@@ -2,7 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-	int i = 0;
 	int sign = 1;
 	char operator; 
 	int x = 0;
@@ -37,16 +36,8 @@ int main(int argc, char *argv[])
 	}
 	/*Loop to get the first number*/
 	x = ft_getnb(argv[1], &sign);
-
-	x *= sign;
-	sign = 1;
-	i = 0;
-
 	/*Loop to get the second number*/
 	y = ft_getnb(argv[3], &sign);
-
-	y *= sign;
-	i = 0;
 
 	if (operator == '*')
 	{
