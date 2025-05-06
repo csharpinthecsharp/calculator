@@ -1,4 +1,4 @@
- #include "fnc.c"
+#include "fnc.c"
 
 int main(int argc, char *argv[])
 {
@@ -36,56 +36,18 @@ int main(int argc, char *argv[])
 		       	       
 	}
 	/*Loop to get the first number*/
-	while (argv[1][i] != '\0')
-	{
-		/*Check if it contains other thing than numbers (ASCII)*/
-		if (argv[1][i] >= '0' && argv[1][i] <= '9')
-		{
-			x = x * 10 + (argv[1][i] - '0');
-			i++;
-		}
-		else if (argv[1][i] == '-')
-		{
-			sign *= -1;
-			i++;
-		}
-		else
-		{
-			ft_putstr("Argument 1 seem to not be a number");
-			return (0);
-		}
-	}
+	x = ft_getnb(argv[1], &sign);
+
 	x *= sign;
 	sign = 1;
 	i = 0;
+
 	/*Loop to get the second number*/
-	while (argv[3][i] != '\0')
-	{
-		if (argv[3][i] >= '0' && argv[3][i] <= '9')
-		{
-			y = y * 10 + (argv[3][i] - '0');
-			i++;
-		}
-		else if (argv[3][0] == '-')
-		{
-			{
-				sign *= -1;
-				i++;
-			}
-		}
-		else
-		{
-			ft_putstr("Argument 3 seem to not be a number");
-		}
-	}
+	y = ft_getnb(argv[3], &sign);
+
 	y *= sign;
 	i = 0;
 
-	if (x < 0 && y < 0)
-	{
-		x *= 1;
-		y *= 1;
-	}
 	if (operator == '*')
 	{
 		ft_putnbr(x * y);
@@ -100,7 +62,13 @@ int main(int argc, char *argv[])
 	}
 	else if (operator == '-')
 	{
+		if (x < 0 && y < 0)
+		{
+			x *= 1;
+			y *= 1;
+		}		
 		ft_putnbr(x - y);
+
 	}
 	return (0);
 }
