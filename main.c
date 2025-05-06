@@ -52,14 +52,8 @@ int main(int argc, char *argv[])
 		ft_putnbr(x + y);
 	}
 	else if (operator == '-')
-	{
-		if (x < 0 && y < 0)
-		{
-			x *= 1;
-			y *= 1;
-		}		
+	{		
 		ft_putnbr(x - y);
-
 	}
 	return (0);
 }
